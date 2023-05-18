@@ -1,0 +1,75 @@
+[
+    {
+      "picture": "image_url_1",
+      "name": "Super Mario Odyssey",
+      "price": 49.99,
+      "rating": 4.9,
+      "subcategory": "Platformer",
+      "availableQuantity": 50,
+      "seller": "GameWorld"
+    },
+    {
+      "picture": "image_url_2",
+      "name": "Minecraft",
+      "price": 29.99,
+      "rating": 4.7,
+      "subcategory": "Simulation",
+      "availableQuantity": 100,
+      "seller": "BlockCraft"
+    },
+    {
+      "picture": "image_url_3",
+      "name": "LEGO Marvel Super Heroes",
+      "price": 39.99,
+      "rating": 4.6,
+      "subcategory": "Action/Adventure",
+      "availableQuantity": 75,
+      "seller": "ToyCo"
+    },
+    {
+      "picture": "image_url_4",
+      "name": "Just Dance 2022",
+      "price": 59.99,
+      "rating": 4.8,
+      "subcategory": "Music/Dance",
+      "availableQuantity": 25,
+      "seller": "GrooveGames"
+    },
+    {
+      "picture": "image_url_5",
+      "name": "FIFA 22",
+      "price": 59.99,
+      "rating": 4.7,
+      "subcategory": "Sports",
+      "availableQuantity": 60,
+      "seller": "GameSports"
+    },
+    {
+      "picture": "image_url_6",
+      "name": "Brain Teasers Deluxe",
+      "price": 19.99,
+      "rating": 4.5,
+      "subcategory": "Puzzle",
+      "availableQuantity": 80,
+      "seller": "MindGames"
+    },
+    {
+      "picture": "image_url_7",
+      "name": "Sonic & Sega All-Stars Racing",
+      "price": 34.99,
+      "rating": 4.8,
+      "subcategory": "Racing",
+      "availableQuantity": 40,
+      "seller": "Speedster Games"
+    },
+    {
+      "picture": "image_url_8",
+      "name": "Pokémon Sword",
+      "price": 59.99,
+      "rating": 4.9,
+      "subcategory": "Role-playing",
+      "availableQuantity": 65,
+      "seller": "PokeGaming"
+    }
+  ]
+  
