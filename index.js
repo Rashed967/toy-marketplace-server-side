@@ -36,46 +36,30 @@ async function run() {
         res.send(result)
     })
 
-    // app.get('/games/:id', async (req, res) => {
-    //     const id = req.params.id;
-    //     const query = {_id : new ObjectId(id)}
-    //     const result = await gamesCollection.findOne(query)
-    //     res.send(result)
-    // })
+    app.get('/gamesByCategory', async (req, res) => {
+        let query = {}
+        if(req.query?.subcategory){
+            query = {subcategory : req.query.subcategory}
+        }
+        const result = await gamesCollection.find(query).toArray()
+        res.send(result)
+    })
 
- // Game Schema
-const gameSchema = new mongoose.Schema({
-    name: String,
-    subcategory: String,
-  });
-  
-  // Game Model
-  const Game = mongoose.model('Game', gameSchema);
-  
-  app.get('/games', async (req, res) => {
-    const { subcategory } = req.query;
-  
-    try {
-      let games;
-  
-      if (subcategory) {
-        // Find games that match the subcategory
-        games = await Game.find({ subcategory: subcategory });
-      } else {
-        // Get all games
-        games = await Game.find();
-      }
-  
-      res.json(games);
-    }
-      catch (err) {
-        res.status(500).json({ error: 'Failed to fetch games from the database' });
-      }
-    });
-  
+    app.get('/games/:id', async (req, res) => {
+        const id = req.params.id;
+        const query = {_id : new ObjectId(id)}
+        console.log(query)
+        const result = await gamesCollection.findOne(query)
+        res.send(result)
+    })
+
+   
 
 
-    
+
+
+ 
+
 
 
     // Send a ping to confirm a successful connection
