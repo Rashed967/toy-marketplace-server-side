@@ -53,19 +53,31 @@ async function run() {
         res.send(result)
     })
 
+    // toy addition db 
+
+    app.get('/allToyes', async(req, res) => {
+        const result = await addedToyCollection.find().limit(20).toArray()
+        res.send(result)
+
+    })
+
     app.post('/addAToy', async(req, res) => {
         const newToy = req.body;
         const result = await addedToyCollection.insertOne(newToy)
         res.send(result)
     })
 
+    // my Toyes 
+    app.get('/myToyes', async(req, res) => {
+        let filter = {}
+        if(req.query?.email){
+            filter = {sellerEmail : req.query.email}
+        }
+        const result = await addedToyCollection.find(filter).toArray()
+        res.send(result)
+    })
+
    
-
-
-
-
- 
-
 
 
     // Send a ping to confirm a successful connection
