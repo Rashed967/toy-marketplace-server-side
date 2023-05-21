@@ -61,9 +61,40 @@ async function run() {
 
     })
 
+    app.get('/allToyes/:id', async(req, res) => {
+        const id = req.params.id;
+        const query = {_id : new ObjectId(id)}
+        const result = await addedToyCollection.findOne(query)
+        res.send(result)
+        
+    })
+
     app.post('/addAToy', async(req, res) => {
         const newToy = req.body;
         const result = await addedToyCollection.insertOne(newToy)
+        res.send(result)
+    })
+
+    app.patch('/allToyes/:id', async (req, res) => {
+        const id = req.params.id
+        const query = {_id : new ObjectId(id)}
+        const oldToy = req.body;
+        const updateDoc = {
+            $set: {
+                price: oldToy.price,
+                quantity : oldToy.quantity,
+                details : oldToy.details
+            },
+          };
+      
+        const result =  await addedToyCollection.updateOne(query, updateDoc)
+        res.send(result)
+    })
+
+    app.delete('/allToyes/:id', async(req, res) => {
+        const id  = req.params.id
+        const query = {_id : new ObjectId(id)}
+        const result = await addedToyCollection.deleteOne(query)
         res.send(result)
     })
 
@@ -76,6 +107,8 @@ async function run() {
         const result = await addedToyCollection.find(filter).toArray()
         res.send(result)
     })
+
+
 
    
 
