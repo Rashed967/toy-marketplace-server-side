@@ -29,6 +29,7 @@ async function run() {
 
     // create database 
     const gamesCollection = client.db('gamesDB').collection('game')
+    const addedToyCollection = client.db('gamesDB').collection('addedToy')
 
     // games collecton 
     app.get('/games', async (req, res) => {
@@ -48,8 +49,13 @@ async function run() {
     app.get('/games/:id', async (req, res) => {
         const id = req.params.id;
         const query = {_id : new ObjectId(id)}
-        console.log(query)
         const result = await gamesCollection.findOne(query)
+        res.send(result)
+    })
+
+    app.post('/addAToy', async(req, res) => {
+        const newToy = req.body;
+        const result = await addedToyCollection.insertOne(newToy)
         res.send(result)
     })
 
